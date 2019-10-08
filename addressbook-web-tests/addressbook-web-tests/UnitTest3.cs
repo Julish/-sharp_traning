@@ -7,10 +7,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-namespace WebAddressbookTests
+namespace SeleniumTests
 {
     [TestFixture]
-    public class GroupCreationTests
+    public class UntitledTestCase
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -20,8 +20,8 @@ namespace WebAddressbookTests
         [SetUp]
         public void SetupTest()
         {
-            driver = new FirefoxDriver("C:/Windows/SysWOW64/");
-            baseURL = "http://localhost/addressbook";
+            driver = new FirefoxDriver();
+            baseURL = "https://www.katalon.com/";
             verificationErrors = new StringBuilder();
         }
 
@@ -40,10 +40,9 @@ namespace WebAddressbookTests
         }
 
         [Test]
-        public void GroupCreationTest()
+        public void TheUntitledTestCaseTest()
         {
-            driver.Navigate().GoToUrl(baseURL);
-            driver.FindElement(By.Name("user")).Click();
+            driver.Navigate().GoToUrl("http://localhost/addressbook/");
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys("admin");
             driver.FindElement(By.Name("pass")).Clear();
@@ -53,13 +52,13 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("new")).Click();
             driver.FindElement(By.Name("group_name")).Click();
             driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys("new test group");
+            driver.FindElement(By.Name("group_name")).SendKeys("test1");
             driver.FindElement(By.Name("group_header")).Click();
             driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys("-");
+            driver.FindElement(By.Name("group_header")).SendKeys("1w");
             driver.FindElement(By.Name("group_footer")).Click();
             driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys("-");
+            driver.FindElement(By.Name("group_footer")).SendKeys("1w");
             driver.FindElement(By.Name("submit")).Click();
             driver.FindElement(By.LinkText("group page")).Click();
             driver.FindElement(By.LinkText("Logout")).Click();
